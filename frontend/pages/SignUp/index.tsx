@@ -47,12 +47,13 @@ function SignUp() {
     }
   }, [email, nickname, password, passwordCheck, mismatchError]);
 
-  // if(data === undefined) {
-  //   return <div>Loading..</div>
-  // }
-  // if(data) {
-  //   return <Redirect to="/workspace/sleact/channel/일반" />
-  // }
+  if(data === undefined) {
+    return <div>Loading..</div>
+  }
+  
+  if(data) {
+    return <Redirect to="/workspace/channel" /> //return은 항상 hooks 아래에 있어야 한다.
+  }
 
   // console.log(error, userData);
   // if(!error && userData) {

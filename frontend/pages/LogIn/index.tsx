@@ -20,18 +20,20 @@ function LogIn() {
       { withCredentials: true }
     ).then((response) => {
       console.log(response);
-      revalidate(); // swr 실행
+      //revalidate(); // swr 실행
+      mutate(response.data, false);
     }).catch((error) => {
       setLogInError(error.response?.data?.statusCode === 401);
     });
   }, [email, password]);
 
-  // if(data === undefined) {
-  //   return <div>Loading..</div>
-  // }
-  // if(data) {
-  //   return <Redirect to="/workspace/sleact/channel/일반" />
-  // }
+  if(data === undefined) {
+    return <div>Loading..</div>
+  }
+
+  if(data) {
+    return <Redirect to="/workspace/channel" />
+  }
 
   // console.log(error, userData);
   // if(!error && userData) {
