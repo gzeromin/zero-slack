@@ -29,7 +29,7 @@ export const ProfileModal = styled.div`
   }
   & > div {
     display: flex;
-    flex-direction: colum;
+    flex-direction: column;
     margin-left: 10px;
   }
   & #profile-name {
@@ -61,7 +61,7 @@ export const WorkspaceWrapper = styled.div`
 
 export const Workspaces = styled.div`
   width: 65px;
-  display: line-flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   background: #3f0e40;

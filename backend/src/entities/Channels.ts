@@ -43,7 +43,7 @@ export class Channels {
   @Column('int', {name: 'WorkspaceId', nullable: true})
   WorkspaceId: number | null;
 
-  @OneToMany(() => ChannelChats, (channelchats) => channelchats.Chnnel)
+  @OneToMany(() => ChannelChats, (channelchats) => channelchats.Channel)
   ChannelChats: ChannelChats[];
 
   @OneToMany(() => ChannelMembers, (channelMembers) => channelMembers.Chnnel, {

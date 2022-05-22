@@ -8,26 +8,21 @@ interface Props {
   closeButton?: boolean;
 }
 
-//  { children, style, show, onCloseModal, closeButton }
-const Menu: FC = ({ children }) => {
+const Menu: FC<Props> = ({ children, style, show, onCloseModal, closeButton }) => {
   
   const stopPropagation = useCallback((e) => {
     e.stopPropagation();
   }, []);
 
-  // if(!show) return null;
+  if(!show) return null;
 
   return (
-    <CreateMenu>
-      <div>menu</div>
-      { children }
+    <CreateMenu onClick={onCloseModal}>
+      <div style={style} onClick={stopPropagation}>
+        {closeButton && <CloseModalButton onClick={onCloseModal}>&times;</CloseModalButton>}
+        {children}
+      </div>
     </CreateMenu>
-    // <CreateMenu onClick={onCloseModal}>
-    //   <div style={style} onClick={stopPropagation}>
-    //     {closeButton && <CloseModalButton onClick={onCloseModal}>&times;</CloseModalButton>}
-    //     {children}
-    //   </div>
-    // </CreateMenu>
   )
 }
 

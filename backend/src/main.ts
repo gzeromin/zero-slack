@@ -24,17 +24,17 @@ async function bootstrap() {
     })
   );
   // * CORS * //
-  if (process.env.NODE_ENV === 'production') {
-    app.enableCors({
-      origin: ['https://sleact.nodebird.com'],
-      credentials: true
-    });
-  } else {
+  // if (process.env.NODE_ENV === 'production') {
+  //   app.enableCors({
+  //     origin: ['https://sleact.nodebird.com'],
+  //     credentials: true
+  //   });
+  // } else {
     app.enableCors({
       origin: true,
       credentials: true
     });
-  }
+  // }
 
   // * 브라우저측의 파일 참조를 위한 설정 START * //
   app.useStaticAssets(

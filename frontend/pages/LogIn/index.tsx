@@ -7,7 +7,7 @@ import { Link, Redirect } from 'react-router-dom';
 import useSWR from 'swr';
 
 function LogIn() {
-  const { data, error, revalidate, mutate } = useSWR('/api/users', fetcher);
+  const { data, error, mutate } = useSWR('/api/users', fetcher);
   const [logInError, setLogInError] = useState(false);
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
@@ -32,7 +32,7 @@ function LogIn() {
   }
 
   if(data) {
-    return <Redirect to="/workspace/channel" />
+    return <Redirect to="/workspace/sleact/channel/common" />
   }
 
   // console.log(error, userData);

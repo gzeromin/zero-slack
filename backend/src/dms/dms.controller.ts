@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post, Query, UseGuards, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Post, Query, UploadedFiles, UseGuards, UseInterceptors } from '@nestjs/common';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { ApiCookieAuth, ApiOperation, ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
 import * as fs from 'fs';
@@ -102,10 +102,12 @@ export class DmsController {
   )
   @Post(':url/dms/:id/images')
   async createWorkspaceDMImages(
-    @Param('url') url, 
+    @Param('url') url,
+    @Param('id', ParseIntPipe) id: number,
+    @UploadedFiles() files: Express.Multer.File[],
     @User() user: Users
   ) {
-    return this.dmsService.getWorkspaceDMs(url, user.id);
+    return this.dmsService.createWorkspaceDMImages(url, files, id, user.id);
   }
 
   @ApiOperation({ summary: 'get count of not read'})

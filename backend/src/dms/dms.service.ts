@@ -52,7 +52,7 @@ export class DmsService {
 				'((dms.SenderId = :myId AND dms.ReceiverId = :id) OR (dms.ReceiverId = :myId AND dms.SenderId = :id))',
 				{ id, myId }
 			)
-			.orderBy('dms/createdAt', 'DESC')
+			.orderBy('dms.createdAt', 'DESC')
 			.take(perPage)
 			.skip(perPage * (page - 1))
 			.getMany();

@@ -7,7 +7,7 @@ import { Success, Form, Error, Label, Input, LinkContainer, Button, Header } fro
 import { Link, Redirect } from 'react-router-dom';
 
 function SignUp() {
-  const { data, error, revalidate } = useSWR('/api/users', fetcher);
+  const { data } = useSWR('/api/users', fetcher);
 
   const [email, onChangeEmail] = useInput('');
   const [nickname, onChangeNickname] = useInput('');
@@ -52,7 +52,7 @@ function SignUp() {
   }
   
   if(data) {
-    return <Redirect to="/workspace/channel" /> //return은 항상 hooks 아래에 있어야 한다.
+    return <Redirect to="/workspace/sleact/channel/common" /> //return은 항상 hooks 아래에 있어야 한다.
   }
 
   // console.log(error, userData);

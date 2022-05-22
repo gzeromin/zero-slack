@@ -43,7 +43,7 @@ export class DMs {
     onUpdate: 'CASCADE',
   })
 
-  @JoinColumn([{name: 'WorkspacedId', referencedColumnName: 'id'}])
+  @JoinColumn([{name: 'WorkspaceId', referencedColumnName: 'id'}])
   Workspace: Workspaces;
 
   @ManyToOne(() => Users, (users) => users.DMs, {

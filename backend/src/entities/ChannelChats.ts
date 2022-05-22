@@ -48,6 +48,6 @@ export class ChannelChats {
   })
 
   @JoinColumn([{name: 'ChannelId', referencedColumnName: 'id'}])
-  Chnnel: Channels;
+  Channel: Channels;
 
 }

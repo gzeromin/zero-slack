@@ -151,6 +151,7 @@ export class ChannelsController {
     @Param('name') name,
     @Query('after', ParseIntPipe) after: number
   ) {
+    console.log("first")
     return this.channelsService.getChannelUnreadCount(url, name, after);
   }
 

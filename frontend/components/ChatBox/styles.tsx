@@ -55,7 +55,7 @@ export const Toolbox = styled.div`
   border-bottom-right: radius: 4px;
 `;
 
-export const SnedButton = styled.button`
+export const SendButton = styled.button`
   position: absolute;
   right: 5px;
   top: 5px;
