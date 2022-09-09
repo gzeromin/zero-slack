@@ -23,7 +23,7 @@ export class ChannelsService {
     @InjectRepository(Users)
     private usersRepository: Repository<Users>,
     private readonly eventsGateway: EventsGateway,
-  ) {}
+  ) { }
 
   async findById(id: number) {
     return this.channelsRepository.findOne({ where: { id } });
@@ -83,7 +83,7 @@ export class ChannelsService {
       .innerJoin('channel.Workspace', 'workspace', 'workspace.url = :url', { url })
       .where('channel.name = :name', { name })
       .getOne();
-    if(!channel) {
+    if (!channel) {
       return new NotFoundException('not exist channel');
     }
     const user = await this.usersRepository
@@ -91,7 +91,7 @@ export class ChannelsService {
       .where('user.email = :email', { email })
       .innerJoin('user.Workspaces', 'workspace', 'workspace.url = :url', { url })
       .getOne();
-    if(!user) {
+    if (!user) {
       return new NotFoundException('not exist user');
     }
     const channelMember = new ChannelMembers();
@@ -128,7 +128,7 @@ export class ChannelsService {
       .innerJoin('channel.Workspace', 'workspace', 'workspace.url = :url', { url })
       .where('channel.name = :name', { name })
       .getOne();
-    
+
     const chats = new ChannelChats();
     chats.content = content;
     chats.UserId = myId;
